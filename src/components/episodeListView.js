@@ -6,11 +6,11 @@ class EpisodeListView extends Component{
 
   renderEpisodeList(el, i){
     return (
-      <ul key={i}>
-        <li>{el.name}</li>
+      <ul key={i} className="episodes__ep">
+        <li className="episodes__title">{el.name}</li>
         <li>Säsong: <span>{el.season}</span></li>
         <li>Avsnitt: <span>{el.number}</span></li>
-        {(el.image != null) ? <li><img src={el.image.medium} alt={el.name}/></li>: ''}
+        {(el.image != null) ? <li className="episodes__img-container"><img className="episodes__img" src={el.image.medium} alt={el.name}/></li>: ''}
       </ul>
     )
   }
@@ -18,7 +18,7 @@ class EpisodeListView extends Component{
   render(){
     const {episodes} = this.props;
     return(
-      <div>
+      <div className="episodes">
         {episodes.map((el, i) =>this.renderEpisodeList(el, i))}
       </div>
     );

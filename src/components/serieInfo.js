@@ -9,8 +9,8 @@ class SerieInfo extends Component{
     const {episodes, serie} = this.props;
 
     return(
-        <div>
-          <h1>{serie.name}</h1>
+        <div className="info">
+          <h1 className="info__title">{serie.name}</h1>
           {(Object.keys(episodes).length !== 0)? <EpisodeListView/> : '' }
         </div>
     );

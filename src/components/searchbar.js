@@ -30,14 +30,15 @@ class Searchbar extends Component{
 
   render(){
     return(
-      <form onSubmit={this.handleSubmit}>
-        <input 
+      <form className="form" onSubmit={this.handleSubmit}>
+        <input
+          className="form__input" 
           placeholder="Sök en serie"
           value={this.state.value}
           onChange={this.handleChange}
         >
         </input>
-        <button type="submit">Sök</button>
+        <button className="form__btn" type="submit">Sök</button>
       </form>
 
     );

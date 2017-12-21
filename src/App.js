@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import Searchbar from './components/searchbar';
 import SerieInfo from './components/serieInfo';
-import './App.css';
+import './style/style.css';
 
 class App extends Component {
   render() {
     const {serieName} = this.props.serie;
     return (
-      <div className="">
+      <div className="container">
         <Searchbar/>
         {(serieName !== '')? <SerieInfo/> : '' }
       </div>
