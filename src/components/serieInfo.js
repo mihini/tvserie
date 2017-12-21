@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import EpisodeListView from './episodeListView';
+import ErrorMessage from './errorMessage';
 
 
 class SerieInfo extends Component{
@@ -10,8 +11,8 @@ class SerieInfo extends Component{
 
     return(
         <div className="info">
-          <h1 className="info__title">{serie.name}</h1>
-          {(Object.keys(episodes).length !== 0)? <EpisodeListView/> : '' }
+          <h1 className="info__title">{serie.serieName.name}</h1>
+          {(Object.keys(episodes).length !== 0)? <EpisodeListView/> : <ErrorMessage msg='Inga episoder hittades'/> }
         </div>
     );
   }

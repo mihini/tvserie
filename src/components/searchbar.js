@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {fetchSerieData} from '../actions/index.js';
+import {fetchSerieData, sendErrorMessage, sendSerieData} from '../actions/index.js';
 
 class Searchbar extends Component{
   constructor(){
@@ -15,11 +15,13 @@ class Searchbar extends Component{
   }
 
   handleSubmit(e){
+    const {fetchSerie, sendErrorMessage} = this.props;
+
     e.preventDefault();
     if(this.state.value !== ''){
-      this.props.fetchSerie(this.state.value);
+      fetchSerie(this.state.value);
     }else{
-      console.log('skriv ett namn');
+      sendErrorMessage();
     }
 
   }
@@ -46,7 +48,11 @@ class Searchbar extends Component{
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({fetchSerie:fetchSerieData}, dispatch);
+  return bindActionCreators({
+    fetchSerie:fetchSerieData, 
+    sendErrorMessage
+  }, dispatch);
 }
+
 
 export default connect(null, mapDispatchToProps)(Searchbar);

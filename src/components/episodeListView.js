@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import noImg from '../images/noImg.png'
 
 
 class EpisodeListView extends Component{
@@ -10,7 +11,12 @@ class EpisodeListView extends Component{
         <li className="episodes__title">{el.name}</li>
         <li>Säsong: <span>{el.season}</span></li>
         <li>Avsnitt: <span>{el.number}</span></li>
-        {(el.image != null) ? <li className="episodes__img-container"><img className="episodes__img" src={el.image.medium} alt={el.name}/></li>: ''}
+        <li className="episodes__img-container">
+          {(el.image != null) ?
+            <img className="episodes__img" src={el.image.medium} alt={el.name}/> :
+            <img className="episodes__img--none" src={noImg} alt="no pic"/>
+          }
+        </li>
       </ul>
     )
   }
